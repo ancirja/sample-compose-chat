@@ -30,7 +30,7 @@ fun ChatRoom(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(horizontal = 16.dp),
     ) {
         items(items) { item ->
             when (item) {

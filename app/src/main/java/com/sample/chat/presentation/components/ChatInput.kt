@@ -21,11 +21,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import com.sample.chat.R
 import com.sample.chat.presentation.theme.RadicalRed
 import com.sample.chat.presentation.theme.Typography
 
@@ -104,7 +106,7 @@ fun ChatInput(
                 Icon(
                     imageVector = Icons.Outlined.Send,
                     tint = sendButtonColor.value,
-                    contentDescription = "Send",
+                    contentDescription = stringResource(id = R.string.send),
                 )
             }
         }

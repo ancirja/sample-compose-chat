@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">SampleChat</string>
     <string name="input_field_placeholder">It\'s a muzzmatch!!</string>
+    <string name="more">More</string>
+    <string name="avatar">Avatar</string>
+    <string name="back">Back</string>
+    <string name="send">Send</string>
 </resources>

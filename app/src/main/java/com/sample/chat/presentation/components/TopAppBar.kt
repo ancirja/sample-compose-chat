@@ -25,12 +25,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.AsyncImage
+import com.sample.chat.R
 import com.sample.chat.domain.User
 import com.sample.chat.presentation.theme.RadicalRed
 import com.sample.chat.presentation.theme.Typography
@@ -66,7 +68,7 @@ fun TopAppBar(
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         tint = RadicalRed,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(id = R.string.back),
                     )
                 }
 
@@ -78,12 +80,13 @@ fun TopAppBar(
                             .clip(CircleShape)
                             .border(2.dp, RadicalRed, CircleShape),
                         model = user.profileUrl,
-                        contentDescription = "Avatar",
+                        contentDescription = stringResource(id = R.string.avatar),
                     )
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
                         text = user.name,
                         style = Typography.h1,
+                        color = Color.Black,
                     )
                 }
             }
@@ -99,7 +102,7 @@ fun TopAppBar(
                 Icon(
                     imageVector = Icons.Default.MoreVert,
                     tint = Color.Gray,
-                    contentDescription = "Menu",
+                    contentDescription = stringResource(id = R.string.more),
                 )
             }
         }
