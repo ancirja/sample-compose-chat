@@ -16,6 +16,7 @@ ext {
     androidxDependencies = [
             coreKtx            : "androidx.core:core-ktx:$coreKtxVersion",
             room               : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler       : "androidx.room:room-compiler:$roomVersion",
             lifecycleRuntimeKtx: "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     ]
 
@@ -34,8 +35,11 @@ ext {
 
     // Google dependencies
     materialVersion = "1.6.1"
+    hiltVersion = "2.44"
     googleDependencies = [
-            material: "com.google.android.material:material:$materialVersion"
+            material    : "com.google.android.material:material:$materialVersion",
+            hilt        : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltCompiler: "com.google.dagger:hilt-compiler:$hiltVersion"
     ]
 
     // Test dependencies

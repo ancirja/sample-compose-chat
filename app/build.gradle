@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: "../ktlint.gradle"
+
 android {
     namespace rootProject.ext.namespace
     compileSdk rootProject.ext.compileSdkVersion
@@ -54,6 +56,12 @@ dependencies {
     implementation composeDependencies.material
     implementation composeDependencies.uiPreview
     implementation googleDependencies.material
+
+    implementation androidxDependencies.room
+    annotationProcessor androidxDependencies.roomCompiler
+
+    implementation googleDependencies.hilt
+    annotationProcessor googleDependencies.hiltCompiler
 
     debugImplementation composeDependencies.uiTooling
     debugImplementation composeDependencies.uiTestManifest
