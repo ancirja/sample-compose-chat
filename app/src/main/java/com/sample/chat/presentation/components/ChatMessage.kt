@@ -27,8 +27,8 @@ fun ChatMessage(message: Message) {
         val alignment = if (message.isMine) Alignment.CenterEnd else Alignment.CenterStart
         val backgroundColor = if (message.isMine) RadicalRed else WhiteLilac
         val textColor = if (message.isMine) Color.White else Color.DarkGray
-        val bottomEndCornerSize = if (message.isMine) zeroRoundCorner else messageRoundCorner
-        val bottomStartCornerSize = if (message.isMine) messageRoundCorner else zeroRoundCorner
+        val bottomEndCornerSize = if (message.isMine && message.hasTail) zeroRoundCorner else messageRoundCorner
+        val bottomStartCornerSize = if (!message.isMine && message.hasTail) zeroRoundCorner else messageRoundCorner
 
         Box(
             modifier = Modifier
@@ -56,5 +56,5 @@ fun ChatMessage(message: Message) {
 @Preview
 @Composable
 fun ChatMessagePreview() {
-    ChatMessage(message = Message("Some text here", isMine = false))
+    ChatMessage(message = Message("Some text here", isMine = false, hasTail = false))
 }

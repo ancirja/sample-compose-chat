@@ -10,6 +10,19 @@ import java.util.Date
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
+/**
+ * This method will map items from Messages ([MessageEntity]) to [ChatItem]s
+ * that can be text messages ([Message]) and date headers ([DateHeader]).
+ *
+ * If the message list is empty, then the result is a list containing only the current date header
+ * If the one message is in the same hour like the previous message then the date header will be added before of them
+ *
+ * A message has a tail when any of the following 3 criteria are met:
+ *      - It is the most recent message in the conversation
+ *      - The message after it is sent by the other user
+ *      - The message after it was sent more than 20 seconds afterwards
+ *
+ */
 fun List<MessageEntity>.toChatItems(): List<ChatItem> {
     val result = mutableListOf<ChatItem>()
 
@@ -20,16 +33,35 @@ fun List<MessageEntity>.toChatItems(): List<ChatItem> {
             val currentItem = get(i)
             if (i == 0) {
                 result.add(DateHeader(currentItem.timestamp.toDateString()))
-                result.add(Message(currentItem.text, currentItem.senderId == AppConfig.MY_USER_ID))
             } else {
                 val previousItem = get(i - 1)
-                val diff = TimeUnit.MILLISECONDS.toHours(currentItem.timestamp - previousItem.timestamp)
-                if (diff >= 1) {
+
+                val diffInHours = TimeUnit.MILLISECONDS.toHours(currentItem.timestamp - previousItem.timestamp)
+                if (diffInHours >= 1) {
                     result.add(DateHeader(currentItem.timestamp.toDateString()))
                 }
-
-                result.add(Message(currentItem.text, currentItem.senderId == AppConfig.MY_USER_ID))
             }
+
+            val nextItem = if (i + 1 in indices) {
+                get(i + 1)
+            } else {
+                null
+            }
+
+            val hasTail = if (nextItem == null) {
+                true
+            } else {
+                val diffInSeconds = TimeUnit.MILLISECONDS.toSeconds(nextItem.timestamp - currentItem.timestamp)
+                diffInSeconds > AppConfig.MESSAGE_TAIL_DELAY || nextItem.receiverId != currentItem.receiverId
+            }
+
+            result.add(
+                Message(
+                    text = currentItem.text,
+                    isMine = currentItem.senderId == AppConfig.MY_USER_ID,
+                    hasTail = hasTail,
+                ),
+            )
         }
     }
 
@@ -45,6 +77,9 @@ private val randomMessages = listOf(
     "The last one went hours",
 )
 
+/**
+ * Generates random message for testing purpose
+ */
 fun randomMessage(): String {
     val index = Random.nextInt(randomMessages.size)
     return randomMessages[index]

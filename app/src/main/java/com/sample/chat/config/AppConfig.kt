@@ -5,4 +5,5 @@ object AppConfig {
     const val DATABASE_VERSION = 1
     const val MY_USER_ID = "me"
     const val OTHER_USER_ID = "other"
+    const val MESSAGE_TAIL_DELAY = 20
 }

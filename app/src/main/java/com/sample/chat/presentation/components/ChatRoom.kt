@@ -30,7 +30,7 @@ fun ChatRoom(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier
             .fillMaxSize()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp),
     ) {
         items(items) { item ->
             when (item) {
@@ -46,11 +46,11 @@ fun ChatRoom(
 fun ChatRoomPreview() {
     val items = listOf(
         DateHeader("Thursday 11:59"),
-        Message("Text message 1", false),
-        Message("Text message 1", true),
+        Message("Text message 1", isMine = false, hasTail = false),
+        Message("Text message 1", isMine = false, hasTail = false),
         DateHeader("Thursday 10:59"),
-        Message("Text message 1", true),
-        Message("Text message 1", false),
+        Message("Text message 1", isMine = false, hasTail = false),
+        Message("Text message 1", isMine = false, hasTail = false),
     )
     ChatRoom(items = items)
 }
