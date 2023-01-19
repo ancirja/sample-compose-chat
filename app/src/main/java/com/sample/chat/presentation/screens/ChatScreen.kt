@@ -16,7 +16,10 @@ import com.sample.chat.presentation.components.ChatRoom
 import com.sample.chat.presentation.components.TopAppBar
 
 @Composable
-fun ChatScreen(viewModel: ChatViewModel = viewModel()) {
+fun ChatScreen(
+    viewModel: ChatViewModel = viewModel(),
+    onClickBackButton: () -> Unit,
+) {
     val user = viewModel.user.collectAsState(initial = null)
     val chatItems = viewModel.chatItems.collectAsState(initial = emptyList())
     Scaffold(
@@ -24,10 +27,8 @@ fun ChatScreen(viewModel: ChatViewModel = viewModel()) {
         topBar = {
             TopAppBar(
                 user = user.value,
-                onClickBackButton = {
-                },
-                onClickMoreButton = {
-                },
+                onClickBackButton = onClickBackButton,
+                onClickMoreButton = {},
             )
         },
         content = {
@@ -48,5 +49,5 @@ fun ChatScreen(viewModel: ChatViewModel = viewModel()) {
 @Composable
 @Preview
 fun ChatScreenPreview() {
-    ChatScreen()
+    ChatScreen(onClickBackButton = {})
 }

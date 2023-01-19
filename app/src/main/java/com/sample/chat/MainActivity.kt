@@ -22,7 +22,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background,
                 ) {
                     SampleChatTheme {
-                        ChatScreen()
+                        ChatScreen(onClickBackButton = {
+                            finish()
+                        })
                     }
                 }
             }
