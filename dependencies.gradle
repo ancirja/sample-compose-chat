@@ -54,9 +54,11 @@ ext {
 
     // Test dependencies
     junitVersion = "4.13.2"
+    truthVersion = "1.1.3"
 
     testDependencies = [
-            junit: "junit:junit:$junitVersion"
+            junit: "junit:junit:$junitVersion",
+            truth: "com.google.truth:truth:$truthVersion"
     ]
 
     // Android test dependencies

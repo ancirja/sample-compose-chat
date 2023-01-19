@@ -73,6 +73,7 @@ dependencies {
     debugImplementation composeDependencies.uiTestManifest
 
     testImplementation testDependencies.junit
+    testImplementation testDependencies.truth
 
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
