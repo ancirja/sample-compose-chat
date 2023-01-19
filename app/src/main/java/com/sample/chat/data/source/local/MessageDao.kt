@@ -13,7 +13,7 @@ interface MessageDao {
 
     @Query(
         "SELECT * FROM messages where sender_id = :senderId AND receiver_id = :receiverId " +
-            "OR sender_id = :receiverId AND receiver_id = :senderId ",
+            "OR sender_id = :receiverId AND receiver_id = :senderId ORDER BY timestamp ASC",
     )
     fun getAll(senderId: String, receiverId: String): Flow<List<MessageEntity>>
 }
