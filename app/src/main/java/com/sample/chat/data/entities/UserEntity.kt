@@ -10,9 +10,7 @@ data class UserEntity(
     @PrimaryKey
     val id: String,
     @ColumnInfo(name = "name")
-    @PrimaryKey
     val name: String,
     @ColumnInfo(name = "picture_url")
-    @PrimaryKey
     val pictureUrl: String,
 )

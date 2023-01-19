@@ -11,7 +11,7 @@ import javax.inject.Singleton
 class UserRepository @Inject constructor(
     private val localDataSource: UserDao,
 ) : UserDataSource {
-    override fun getUserById(userId: String): Flow<UserEntity> =
+    override fun getUserById(userId: String): Flow<UserEntity?> =
         localDataSource.getUserById(userId)
 
     override fun addUser(user: UserEntity): Flow<Unit> =

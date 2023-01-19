@@ -13,11 +13,15 @@ ext {
     coreKtxVersion = "1.9.0"
     roomVersion = "2.5.0"
     lifecycleVersion = "2.5.1"
+    constraintLayoutVersion = "1.0.1"
     androidxDependencies = [
-            coreKtx            : "androidx.core:core-ktx:$coreKtxVersion",
-            room               : "androidx.room:room-runtime:$roomVersion",
-            roomCompiler       : "androidx.room:room-compiler:$roomVersion",
-            lifecycleRuntimeKtx: "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+            coreKtx                  : "androidx.core:core-ktx:$coreKtxVersion",
+            room                     : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler             : "androidx.room:room-compiler:$roomVersion",
+            roomKtx                  : "androidx.room:room-ktx:$roomVersion",
+            lifecycleRuntimeKtx      : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+            lifecycleViewModelCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion",
+            constraintLayoutCompose  : "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutVersion"
     ]
 
     // Compose dependencies
@@ -39,7 +43,13 @@ ext {
     googleDependencies = [
             material    : "com.google.android.material:material:$materialVersion",
             hilt        : "com.google.dagger:hilt-android:$hiltVersion",
-            hiltCompiler: "com.google.dagger:hilt-compiler:$hiltVersion"
+            hiltCompiler: "com.google.dagger:hilt-android-compiler:$hiltVersion",
+    ]
+
+    // Common dependencies
+    coilVersion = "2.2.2"
+    commonDependencies = [
+            coil: "io.coil-kt:coil-compose:$coilVersion"
     ]
 
     // Test dependencies
