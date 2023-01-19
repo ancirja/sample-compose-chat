@@ -1,26 +1,32 @@
-package com.sample.chat.presentation
+package com.sample.chat.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sample.chat.domain.ChatItem
 import com.sample.chat.domain.DateHeader
 import com.sample.chat.domain.Message
-import com.sample.chat.presentation.components.ChatDateHeader
-import com.sample.chat.presentation.components.ChatMessage
 
 @Composable
 fun ChatRoom(
     modifier: Modifier = Modifier,
     items: List<ChatItem>,
 ) {
+    val listState = rememberLazyListState()
+    LaunchedEffect(items.size) {
+        listState.animateScrollToItem(items.size)
+    }
+
     LazyColumn(
+        state = listState,
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier
             .fillMaxSize()

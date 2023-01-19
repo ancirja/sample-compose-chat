@@ -11,8 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sample.chat.R
 import com.sample.chat.domain.ChatViewModel
-import com.sample.chat.presentation.ChatRoom
 import com.sample.chat.presentation.components.ChatInput
+import com.sample.chat.presentation.components.ChatRoom
 import com.sample.chat.presentation.components.TopAppBar
 
 @Composable
