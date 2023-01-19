@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SampleChat</string>
+    <string name="input_field_placeholder">It\'s a muzzmatch!!</string>
 </resources>

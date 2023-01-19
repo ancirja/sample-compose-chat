@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Send
@@ -26,11 +27,13 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.sample.chat.presentation.theme.RadicalRed
+import com.sample.chat.presentation.theme.Typography
 
 @Composable
 fun ChatInput(
     modifier: Modifier = Modifier,
     value: String,
+    placeholder: String? = null,
     topElevation: Dp = 8.dp,
     onClickSend: (String) -> Unit,
 ) {
@@ -70,6 +73,7 @@ fun ChatInput(
                         sendButtonColor.value = if (it.hasFocus) RadicalRed else Color.Gray
                     },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
+                    textColor = Color.Black,
                     focusedBorderColor = RadicalRed,
                     unfocusedBorderColor = Color.Gray,
                     cursorColor = RadicalRed,
@@ -78,6 +82,11 @@ fun ChatInput(
                 value = currentText.value,
                 onValueChange = {
                     currentText.value = it
+                },
+                placeholder = {
+                    if (!placeholder.isNullOrEmpty()) {
+                        Text(text = placeholder, style = Typography.body1, color = Color.LightGray)
+                    }
                 },
             )
 

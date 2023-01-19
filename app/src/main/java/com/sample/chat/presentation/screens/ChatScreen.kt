@@ -6,8 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sample.chat.R
 import com.sample.chat.domain.ChatViewModel
 import com.sample.chat.presentation.ChatRoom
 import com.sample.chat.presentation.components.ChatInput
@@ -32,9 +34,13 @@ fun ChatScreen(viewModel: ChatViewModel = viewModel()) {
             ChatRoom(modifier = Modifier.padding(it), items = chatItems.value)
         },
         bottomBar = {
-            ChatInput(value = "", onClickSend = {
-                viewModel.sendMessage(it)
-            })
+            ChatInput(
+                value = "",
+                placeholder = stringResource(id = R.string.input_field_placeholder),
+                onClickSend = {
+                    viewModel.sendMessage(it)
+                },
+            )
         },
     )
 }
