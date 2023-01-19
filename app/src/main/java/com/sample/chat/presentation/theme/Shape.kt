@@ -1,4 +1,4 @@
-package com.sample.chat.ui.theme
+package com.sample.chat.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
