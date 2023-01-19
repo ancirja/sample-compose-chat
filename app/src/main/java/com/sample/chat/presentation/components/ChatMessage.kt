@@ -22,7 +22,7 @@ import com.sample.chat.presentation.zeroRoundCorner
 @Composable
 fun ChatMessage(message: Message) {
     Box(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         val alignment = if (message.isMine) Alignment.CenterEnd else Alignment.CenterStart
         val backgroundColor = if (message.isMine) RadicalRed else WhiteLilac
@@ -47,7 +47,7 @@ fun ChatMessage(message: Message) {
                 modifier = Modifier.padding(10.dp),
                 text = message.text,
                 color = textColor,
-                style = Typography.body1
+                style = Typography.body1,
             )
         }
     }

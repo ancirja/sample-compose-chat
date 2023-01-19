@@ -18,7 +18,7 @@ import com.sample.chat.presentation.components.ChatMessage
 @Composable
 fun ChatRoom(
     modifier: Modifier = Modifier,
-    items: List<ChatItem>
+    items: List<ChatItem>,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(16.dp),

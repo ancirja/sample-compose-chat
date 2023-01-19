@@ -16,7 +16,7 @@ import com.sample.chat.presentation.components.TopAppBar
 @Composable
 fun ChatScreen(viewModel: ChatViewModel = viewModel()) {
     val user = viewModel.user.collectAsState(initial = null)
-    val chatItems = viewModel.allMessages.collectAsState(initial = emptyList())
+    val chatItems = viewModel.chatItems.collectAsState(initial = emptyList())
     Scaffold(
         backgroundColor = Color.White,
         topBar = {

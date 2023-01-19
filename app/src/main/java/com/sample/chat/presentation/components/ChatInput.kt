@@ -52,7 +52,7 @@ fun ChatInput(
         }
 
         ConstraintLayout(
-            modifier = modifier.fillMaxWidth()
+            modifier = modifier.fillMaxWidth(),
         ) {
             val (text, button) = createRefs()
 

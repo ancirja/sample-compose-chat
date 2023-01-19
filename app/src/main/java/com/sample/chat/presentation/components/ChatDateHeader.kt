@@ -13,13 +13,13 @@ import com.sample.chat.presentation.theme.Typography
 @Composable
 fun ChatDateHeader(date: String) {
     Box(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Text(
             modifier = Modifier.align(Alignment.Center),
             text = date,
             color = Color.LightGray,
-            style = Typography.h2
+            style = Typography.h2,
         )
     }
 }
