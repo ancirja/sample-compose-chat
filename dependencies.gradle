@@ -55,10 +55,14 @@ ext {
     // Test dependencies
     junitVersion = "4.13.2"
     truthVersion = "1.1.3"
+    mockitoCoreVersion = "4.6.1"
+    mockitoKotlinVersion = "4.0.0"
 
     testDependencies = [
-            junit: "junit:junit:$junitVersion",
-            truth: "com.google.truth:truth:$truthVersion"
+            junit        : "junit:junit:$junitVersion",
+            truth        : "com.google.truth:truth:$truthVersion",
+            mockitoCore  : "org.mockito:mockito-core:$mockitoCoreVersion",
+            mockitoKotlin: "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
     ]
 
     // Android test dependencies

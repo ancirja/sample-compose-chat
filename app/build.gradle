@@ -74,8 +74,12 @@ dependencies {
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.truth
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2'
 
     androidTestImplementation instrumentationTestDependencies.junit
     androidTestImplementation instrumentationTestDependencies.espressoCore
     androidTestImplementation instrumentationTestDependencies.composeUi
+    androidTestImplementation testDependencies.truth
 }
